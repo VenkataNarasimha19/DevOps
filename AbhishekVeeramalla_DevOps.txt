@@ -1,0 +1,153 @@
+Class-1
+What is DevOps
+DevOps is a process of improving the appilcation/script delivery by ensuring that there is proper Automation with a Code Quality that is maintained and ensuring that there is a Continuous Monitoring and Continuous Testing in place.
+
+Why DevOps?
+DevOps is a Culture/Methodology/way of working process to increase the efficiency and improves the delivery process by involving Automation, Quality, Monitoring & Testing and using CI/CD Process.
+
+I am a DevOps engineer, i have overall 3 years of expireance in devops and before that i was working as system admin, BRE(Build & Release Engineer), System Administrator, Site Reliability Engineer and as a Support Engineer for Test Equipments & Utilization Monitoring. 
+
+In Current organization, i can take care of Automation, Quality, Monitoring, Testing.
+
+Class-2:
+SDLC:Planning--> Defining--> Designing --> Building --> Testing --> Deploy --> Monitoring
+
+Class-3 & Class-4 : To Create and Connect to Virtual Machines 
+
+Class-5: How to Connect to EC2 Instance
+1) Login to AWS UI--> EC2 instances --> Click on Instance --> AWS Console --> Connect 
+2) Putty 
+3) MobaXterm
+4) AWS CLI: The AWS Command Line Interface (AWS CLI) is an open source tool that enables you to interact with AWS services using commands in your command-line shell. 
+Install AWS CLI
+aws --version to check
+ssh ubuntu@13.127.127.119
+ssh -i C:\Users\venka\Downloads\myawskey.pem ubuntu@13.127.127.119  ---  Now it is connected to EC2 Instance
+
+aws configure ---> enter below Access key & password & region credwntials
+Create AWS Access Key: AKIA6PKFKO46TRXUNXOG  --> Password: Ux+hr1HvIAxvD3HVFVTEBWcQPLt0RGy2tNOA0jzD
+region: ap-south-1
+
+
+Class-6: Why Linux is so Popular than other operating systems?
+Linux is a Free, Open Source Secure, Distribution and Fast Operating System over windows.
+
+What is Kernel in OS.
+Kernerl is a heart of the any Operating System which does Device Management, Memory, Process, and Handling System calls.
+
+Fundamentals of Shell Scripting:
+Shell is a way that talk to Operating system. Linux having Centos, Fedora & Ubuntu distributions. Ubuntu is widly used in Linux Operating System.
+
+Most of the GUI will not install in Linux beacuse it comes some weight to the machine and it will be slow means OS GUI and Server will be heavy. thats why in most of the time we won't use GUI in production environment. Most of the time we use shell commands to talk to the distribution or OS to create a required files and directories.
+
+Shell Scripting: Shell scripting is a way to automate tasks and execute commands in a Unix or Unix-like operating system using a shell, which is a command-line interface to interact with the operating system.
+
+Shell commands which we use daily day to day basis:
+
+ls: listing the files and folders
+ls -ltr: list all the files & folders with properties
+ls -al: list all the files & folders with hidden
+pwd: present working directory: always
+cd: change directory
+touch: to create a file
+vi: to create a file & write someting inside the file
+cat: to print file like which is present inside of the file
+mkdir: to create a directory
+rm: to remove a file
+rm -r: to remove a directory
+clear: to clear the screen
+
+free -mg: to know the memory of your computer
+nproc: to know the cpu count and details
+df -h: to know the disk space & details
+top: we can get the complete information of cpu, memory and details using the top command. this command is used to whole management.
+
+
+Class-7: AWS Project using SHELL SCRIPTING for DevOps:
+
+To ensure that a certain script runs every day at a specific time, you can use a combination of scheduling tools available on Unix-like operating systems. The most commonly used scheduling tools are cron (on Unix and Linux systems) and Task Scheduler (on Windows systems). I'll explain how to achieve this using cron as it is widely used on Unix-like systems.
+
+Cron Job using Shell Scripting & AWS CLI:
+Open a terminal or shell.
+bash: prefer bash why because bash is one of the widly used scriptings. so go for bash
+
+aws configure: run the aws configure command and provide access and secret keys.
+
+vim aws_resource_tracker.sh
+#!/bin/bash
+##################
+# Author: Narasimha
+# Date: 28-09-2023
+#
+# Version: v1
+#
+# This script will report the AWS resource usage
+#############################################
+
+set -x
+
+# AWS S3 
+# AWS EC2
+# AWS Lambda
+# AWS IAM Users
+
+# list s3 buckets
+echo "Print list of s3 buckets"
+aws s3 ls > resourceTracker
+
+# list EC2 Instances
+echo "Print list of ec2 instances"
+aws ec2 describe-intances
+aws ec2 describe-intances | aws ec2 describe-instances | jq '.Reservations[].Instances[].InstanceId'
+
+# list-lambda
+echo "Print list of lambda functions"
+aws lambda list-functions >> resourceTracker:q!
+
+# list IAM Users
+echo "Print list of IAM users"
+aws iam list-users
+
+:wq!
+
+Commands:
+1) chmod 777 aws_resource_tracker.sh
+2) ./aws_resource_tracker.sh ---> to execute 
+3) ./aws_resource_tracker.sh | more ---> to execute 
+4) aws ec2 describe-instances | jq '.Reservations[].Instances[].InstanceId'
+5) ./aws_resource_tracker.sh---> to execute 
+
+Class-8: DevOps Zero to Hero | Shell Scripting Project Used In Real Time
+Write a Shell Script using Github integration:
+API: Application Programming Language
+
+Create EC2 Instances
+Open Terminal and connect to EC2 Instance
+ssh -i pem file & its location ubuntu@IP Address
+
+git clone <url>
+ls
+cd <shell script directory>
+export username="venkatanarasimha19"
+export password="srivenkat7159"
+export token="token id"
+
+ls
+./list-users.sh devops-by-examples python
+
+chmod 777 list-users.sh
+sudo apt install jq -y
+./list-users.sh devops-by-examples python
+
+
+
+
+
+
+
+
+
+
+
+
+
